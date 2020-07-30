@@ -1,0 +1,37 @@
+# Project: OFastOCC4bLoaderSys
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = BasicFunction.o Bin4Bit.o Data.o OFastOCC4bLoaderSys.o
+LINKOBJ  = BasicFunction.o Bin4Bit.o Data.o OFastOCC4bLoaderSys.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32 -pg
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = OFastOCC4bLoaderSys.exe
+CXXFLAGS = $(CXXINCS) -m32 -pg
+CFLAGS   = $(INCS) -m32 -pg
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+BasicFunction.o: BasicFunction.c
+	$(CC) -c BasicFunction.c -o BasicFunction.o $(CFLAGS)
+
+Bin4Bit.o: Bin4Bit.c
+	$(CC) -c Bin4Bit.c -o Bin4Bit.o $(CFLAGS)
+
+Data.o: Data.c
+	$(CC) -c Data.c -o Data.o $(CFLAGS)
+
+OFastOCC4bLoaderSys.o: OFastOCC4bLoaderSys.c
+	$(CC) -c OFastOCC4bLoaderSys.c -o OFastOCC4bLoaderSys.o $(CFLAGS)
